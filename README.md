@@ -24,3 +24,19 @@ infrastructure as code (IaC) projects.
 - Workspaces separate work areas for your Terraform projects.
 - Allows us to isolate and manage your infrastructure configurations, making it easier to handle multiple environments
 	like development, testing and production.
+
+## 1.2. Benefits
+
+- **Isolation**
+	- You can keep your configurations separate, reducing the risk of accidental changes affecting your production
+		environment.
+- **Efficiency**
+	- Workspaces streamline the process of managing multiple environments with common codebases, which enhances code
+		reusability.
+
+## 1.3. When to Avoid Workspaces?
+
+- Workspaces are not great for system decomposition or deployments requiring separate credentials and access controls.
+- Most of the time, workspaces are useful when you have the same credentials.
+	- For example, if you have a separate account for `dev`, another account for `stage`, and a third account for `prod`,
+		you can't use workspaces.
