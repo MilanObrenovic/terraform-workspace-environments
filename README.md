@@ -40,3 +40,11 @@ infrastructure as code (IaC) projects.
 - Most of the time, workspaces are useful when you have the same credentials.
 	- For example, if you have a separate account for `dev`, another account for `stage`, and a third account for `prod`,
 		you can't use workspaces.
+
+# 2. Usage
+
+1. Specify which `.tfvars` file to use:
+
+```shell
+terraform apply --var-file="dev.tfvars"
+```
