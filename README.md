@@ -41,10 +41,41 @@ infrastructure as code (IaC) projects.
 	- For example, if you have a separate account for `dev`, another account for `stage`, and a third account for `prod`,
 		you can't use workspaces.
 
-# 2. Usage
+# 2. Terraform Workspaces
 
-1. Specify which `.tfvars` file to use:
+1. List all existing workspaces:
 
 ```shell
-terraform apply --var-file="dev.tfvars"
+terraform workspace list
 ```
+
+2. Create a new workspace:
+
+```shell
+terraform workspace new dev
+terraform workspace new stage
+terraform workspace new prod
+```
+
+- List the workspaces again to verify they have been created.
+
+3. Select a particular workspace:
+
+```shell
+terraform workspace select dev
+```
+
+4. To check what is the currently selected workspace, use command:
+
+```shell
+terraform workspace show
+```
+
+5. Once the `dev` workspace is selected, apply the `dev.tfvars`:
+
+```shell
+terraform apply --var-file="dev.tfvars" --auto-approve
+```
+
+- Repeat the similar process for other workspace environments.
+- This should now create different EC2 instances instead of updating the same instance.
